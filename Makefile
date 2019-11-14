@@ -5,10 +5,10 @@ libcplay.so:
 	gcc -std=c17 -Wall -Wextra -c src/cplayfunctions.c -o lib/libcplay.so
 
 run: cplay
-	./cplay
+	./build/cplay
 
 runv: cplay
-	valgrind ./cplay
+	valgrind ./build/cplay
 
 clean:
-	rm -rf cplay *so
+	rm -rf cplay build/* lib/*
