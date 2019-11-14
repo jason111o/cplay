@@ -9,4 +9,4 @@ make run - Runs the program after compilation
 
 make runv - Runs the program after compilation with valgrind
 
-make clean - To return everythong to its original state before compilation
+make clean - To return everything to its original state before compilation
