@@ -4,6 +4,7 @@ cplay: libcplay.so
 libcplay.so:
 	if [ ! -d build ]; then mkdir build; fi
 	if [ ! -d lib ]; then mkdir lib; fi
+	if [ ! -d src ]; then mkdir src; mv main.c headers.h functions.c src/; fi
 	gcc -std=c17 -Wall -Wextra -c src/functions.c -o lib/libcplay.so
 
 clean:
