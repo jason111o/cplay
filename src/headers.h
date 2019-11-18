@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <limits.h>
+#include <ctype.h>
 
 /*====STRUCTS====*/
 typedef struct node
@@ -15,3 +16,4 @@ typedef struct node
 
 /*====PROTOTYPES====*/
 void print_ascii();
+void print_hacker_name();
