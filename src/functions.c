@@ -79,6 +79,7 @@ void find_cubic_yard()
         fprintf(stderr, "scanf failed to get int w\n");
         exit(1);
     }
+    fflush(stdin);
     printf("Width: ");
     double w;
     if (scanf("%lf", &w) == 0)
@@ -86,6 +87,7 @@ void find_cubic_yard()
         fprintf(stderr, "scanf failed to get int w\n");
         exit(1);
     }
+    fflush(stdin);
     printf("Length: ");
     double l;
     if (scanf("%lf", &l) == 0)
@@ -93,5 +95,6 @@ void find_cubic_yard()
         fprintf(stderr, "scanf failed to get int w\n");
         exit(1);
     }
+    fflush(stdin);
     printf("\033[01;33m%.2lf \033[01;37mCY\n\n\033[0m", (double) ((l*w*h) / 27));
 }
