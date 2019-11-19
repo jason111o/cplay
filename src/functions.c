@@ -2,8 +2,9 @@
 
 void print_ascii()
 {
+    system("clear");
     char *string = (char*)calloc(UCHAR_MAX, sizeof(char));
-    printf("\nEnter a string to see the ascii values of each character\n");
+    printf("\nEnter a string to see the ascii values of each character\n>");
     char c;
     c = getchar();
     unsigned long i = 0;
@@ -22,13 +23,15 @@ void print_ascii()
     {
         printf("\033[01;33m %c \033[01;31m-\033[01;35m %d\033[0m\n", string[i], string[i]);
     }
+    printf("\n");
     free(string);
 }
 
 void print_hacker_name()
 {
+    system("clear");
     char *string = (char*)calloc(UCHAR_MAX, sizeof(char));
-    printf("\nEnter a name\n");
+    printf("\nEnter a name\n>");
     char c;
     c = getchar();
     unsigned long i = 0;
@@ -49,19 +52,18 @@ void print_hacker_name()
             string[i] = '1';
         else if (string[i] == 'i')
             string[i] = 'I';
+        else if (string[i] == 'h')
+            string[i] = '4';
         i++;
         c = getchar();
     }
     fflush(stdin);
 
     printf("\n\033[01;34mYour hacker name is...\n");
-    int color;
-    for (i = 0, color = 1; i < strlen(string); i++, color++)
+    for (i = 0; i < strlen(string); i++)
     {
-        printf("\033[01;3%dm%c", color, string[i]);
-        if (color == 7)
-            color = 1;
+        printf("\033[01;31m%c", string[i]);
     }
-    printf("\033[0m\n");
+    printf("\033[0m\n\n");
     free(string);
 }
