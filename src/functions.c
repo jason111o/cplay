@@ -67,3 +67,31 @@ void print_hacker_name()
     printf("\033[0m\n\n");
     free(string);
 }
+
+void find_cubic_yard()
+{
+    system("clear");
+    printf("Enter decimal numbers i.e. 2.8, 6.79, 3, 3.0\n");
+    printf("Height: ");
+    double h;
+    if (scanf("%lf", &h) == 0)
+    {
+        fprintf(stderr, "scanf failed to get int w\n");
+        exit(1);
+    }
+    printf("Width: ");
+    double w;
+    if (scanf("%lf", &w) == 0)
+    {
+        fprintf(stderr, "scanf failed to get int w\n");
+        exit(1);
+    }
+    printf("Length: ");
+    double l;
+    if (scanf("%lf", &l) == 0)
+    {
+        fprintf(stderr, "scanf failed to get int w\n");
+        exit(1);
+    }
+    printf("\033[01;33m%.2lf \033[01;37mCY\n\n\033[0m", (double) ((l*w*h) / 27));
+}

@@ -17,3 +17,4 @@ typedef struct node
 /*====PROTOTYPES====*/
 void print_ascii();
 void print_hacker_name();
+void find_cubic_yard();

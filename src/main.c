@@ -9,6 +9,7 @@ int main()
         printf("****MENU****\n");
         printf("1. Convert input to ascii\n");
         printf("2. Convert yor name to a hack3r nam3\n");
+        printf("3. Find CY from measurements\n");
         printf("99. EXIT\n>");
         if (scanf("%d", &n) == 0)
             exit(1);
@@ -17,6 +18,8 @@ int main()
             print_ascii();
         else if (n == 2)
             print_hacker_name();
+        else if (n == 3)
+            find_cubic_yard();
     }
 
     return 0;
