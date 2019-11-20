@@ -25,6 +25,10 @@ void print_ascii()
     }
     printf("\n");
     free(string);
+    printf("Press Enter\n");
+    getchar();
+    fflush(stdin);
+    system("clear");
 }
 
 void print_hacker_name()
@@ -66,6 +70,10 @@ void print_hacker_name()
     }
     printf("\033[0m\n\n");
     free(string);
+    printf("Press Enter\n");
+    getchar();
+    fflush(stdin);
+    system("clear");
 }
 
 void find_cubic_yard()
@@ -95,6 +103,42 @@ void find_cubic_yard()
         fprintf(stderr, "scanf failed to get int w\n");
         exit(1);
     }
-    fflush(stdin);
     printf("\033[01;33m%.2lf \033[01;37mCY\n\n\033[0m", (double) ((l*w*h) / 27));
+    printf("Press Enter\n");
+    getchar();
+    fflush(stdin);
+    system("clear");
+}
+
+void max_out_memory()
+{
+    system("clear");
+    printf("Enter 'c' to continue or 'q' to quit\n>");
+    char c;
+    while ((c = getchar()) != '\n')
+    {
+        fflush(stdin);
+        if (c == 'q' || c == 'Q')
+            break;
+        else if (c == 'c' || c == 'C')
+        {
+            size_t ohshit = 1;
+            char *uhoh = malloc(sizeof(int) * ohshit);
+            if (uhoh == NULL)
+                exit(99);
+            while (uhoh != NULL)
+            {
+                system("clear");
+                printf("sizeof uhoh > %lu\nohshit > %lu\n", sizeof(uhoh), ohshit);
+                ohshit *= 2;
+                free(uhoh);
+                uhoh = malloc(sizeof(int) * ohshit);
+            }
+            printf("Press Enter\n");
+            getchar();
+            fflush(stdin);
+            free(uhoh);
+            system("clear");
+        }
+    }
 }

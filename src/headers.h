@@ -18,3 +18,4 @@ typedef struct node
 void print_ascii();
 void print_hacker_name();
 void find_cubic_yard();
+void max_out_memory();
