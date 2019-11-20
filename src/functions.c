@@ -26,7 +26,7 @@ void print_ascii()
     printf("\n");
     free(string);
     printf("Press Enter\n");
-    getchar();
+    while ((getchar()) != '\n');
     fflush(stdin);
     system("clear");
 }
@@ -71,7 +71,7 @@ void print_hacker_name()
     printf("\033[0m\n\n");
     free(string);
     printf("Press Enter\n");
-    getchar();
+    while ((getchar()) != '\n')
     fflush(stdin);
     system("clear");
 }
@@ -103,9 +103,11 @@ void find_cubic_yard()
         fprintf(stderr, "scanf failed to get int w\n");
         exit(1);
     }
+    fflush(stdin);
     printf("\033[01;33m%.2lf \033[01;37mCY\n\n\033[0m", (double) ((l*w*h) / 27));
     printf("Press Enter\n");
     getchar();
+    while ((getchar()) != '\n');
     fflush(stdin);
     system("clear");
 }
@@ -136,6 +138,7 @@ void max_out_memory()
             }
             printf("Press Enter\n");
             getchar();
+            while ((getchar()) != '\n');
             fflush(stdin);
             free(uhoh);
             system("clear");
