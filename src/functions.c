@@ -180,13 +180,22 @@ void brian()
         printf("\nWhen you done with me cupping your balls I'll get back to work.\n\n");
     else if ((strcmp(name, "police") == 0) || (strcmp(name, "cops") == 0))
         printf("\nFuck you bitch! My keys are in the console you dumb fuck!'\n\n");
+    else if (strcmp(name, "bitch") == 0)
+    {
+        printf("I see how it is, faggot!\n");
+        sleep(2);
+        printf("Well, you might not be queer, but I bet you would let one go soft in your mouth.\n\n");
+        sleep(5);
+        system("clear");
+        return; // End function
+    }
     else
-        printf("\nI hate fucking cops! Wanna drink some Yuengling?\n\n");
+        printf("\nI hate fucking cops! Want some Yuengling?\n\n");
 
     printf("\033[0mPress Enter\n");
     getchar();
     while ((getchar()) != '\n');
     fflush(stdin);
     free(name);
-    system("clear");
+    brian(); // Start function over
 }
