@@ -151,37 +151,52 @@ void brian()
     system("clear");
 
     char *name = (char *) calloc(10, sizeof(char));
+    unsigned int i;
 
     printf("\033[31;36mWho will speak to Brian...\n\033[31;33m");
 
     if (scanf("%s", name) == 0)
-        name = "nobody";
+        name = "anybody";
 
-    for (unsigned int i = 0; i < strlen(name); i++)
-        name[i] = (char) tolower(name[i]);
+    while ((strcmp(name, "fuckoff")) != 0)
+    {
+        if ((strcmp(name, "jason")) == 0)
+            printf("\nStill got that bitch Noah workig with you!?\n\n");
+        else if (strcmp(name, "jessie") == 0)
+            printf("\nHow can you work with these punks?\n\n");
+        else if (strcmp(name, "twin") == 0)
+            printf("\nWhere's that albino Kevin Heart hiding?\n\n");
+        else if (strcmp(name, "noah") == 0)
+            printf("\nI need my underware back and your finger condom is stuck in my ass.\n\n");
+        else if (strcmp(name, "rut") == 0)
+            printf("\nGoddam Rut, my fucking mouth is already stretched out!\n\n");
+        else if (strcmp(name, "keith") == 0)
+            printf("\nYou big, but you still a bitch.\n\n");
+        else if (strcmp(name, "charles") == 0)
+            printf("\n... '\n\n");
+        else if (strcmp(name, "tookie") == 0)
+            printf("\nYou don't want to fuck with this big boy.\n\n");
+        else if (strcmp(name, "trey") == 0)
+            printf("\nWhen you done with me cupping your balls I'll get back to work.\n\n");
+        else if ((strcmp(name, "police") == 0) || (strcmp(name, "cops") == 0))
+            printf("\nFuck you bitch! My keys are in the console you dumb fuck!'\n\n");
+        else
+            printf("\nI hate fucking cops! Wanna drink some Yuengling?\n");
+    
+        printf("\033[0mPress Enter\n");
+        getchar();
+        while ((getchar()) != '\n');
+        fflush(stdin);
+        system("clear");
 
-    if ((strcmp(name, "jason")) == 0)
-        printf("\nStill got that bitch Noah workig with you!?\n\n");
-    else if (strcmp(name, "jessie") == 0)
-        printf("\nHow can you work with these punks?\n\n");
-    else if (strcmp(name, "twin") == 0)
-        printf("\nWhere's that albino Kevin Heart hiding?\n\n");
-    else if (strcmp(name, "noah") == 0)
-        printf("\nI need my underware back and your finger condom is stuck in my ass.\n\n");
-    else if (strcmp(name, "rut") == 0)
-        printf("\nGoddam Rut, my fucking mouth is already stretched out!\n\n");
-    else if (strcmp(name, "keith") == 0)
-        printf("\nYou big, but you still a bitch.\n\n");
-    else if (strcmp(name, "charles") == 0)
-        printf("\n... '\n\n");
-    else if (strcmp(name, "tookie") == 0)
-        printf("\nYou don't want to fuck with this big boy.\n\n");
-    else if (strcmp(name, "trey") == 0)
-        printf("\nWhen you done with me cupping your balls I'll get back to work.\n\n");
-    else if ((strcmp(name, "police") == 0) || (strcmp(name, "cops") == 0))
-        printf("\nFuck you bitch! My keys are in the console you dumb fuck!'\n\n");
-    else
-        printf("\nI hate fucking cops! Wanna drink some Yuengling?\n\n");
+        printf("\033[31;36mWho dares speak to the fucker now?\n\033[31;33m");
+
+        if (scanf("%s", name) == 0)
+            name = "anybody";
+
+        for (i = 0; i < strlen(name); i++)
+            name[i] = (char) tolower(name[i]);
+    }
 
     printf("\033[0mPress Enter\n");
     getchar();
