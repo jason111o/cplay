@@ -191,51 +191,16 @@ void brian()
 
         printf("\033[31;36mWho dares speak to the fucker now?\n\033[31;33m");
 
-<<<<<<< HEAD
         if (scanf("%s", name) == 0)
             name = "anybody";
 
         for (i = 0; i < strlen(name); i++)
             name[i] = (char) tolower(name[i]);
     }
-=======
-    if ((strcmp(name, "jason")) == 0)
-        printf("\nStill got that bitch Noah workig with you!?\n\n");
-    else if (strcmp(name, "jessie") == 0)
-        printf("\nHow can you work with these punks?\n\n");
-    else if (strcmp(name, "twin") == 0)
-        printf("\nWhere's that albino Kevin Heart hiding?\n\n");
-    else if (strcmp(name, "noah") == 0)
-        printf("\nI need my underware back and your finger condom is stuck in my ass.\n\n");
-    else if (strcmp(name, "rut") == 0)
-        printf("\nGoddam Rut, my fucking mouth is already stretched out!\n\n");
-    else if (strcmp(name, "keith") == 0)
-        printf("\nYou big, but you still a bitch.\n\n");
-    else if (strcmp(name, "charles") == 0)
-        printf("\n... '\n\n");
-    else if (strcmp(name, "tookie") == 0)
-        printf("\nYou don't want to fuck with this big boy.\n\n");
-    else if (strcmp(name, "trey") == 0)
-        printf("\nWhen you done with me cupping your balls I'll get back to work.\n\n");
-    else if ((strcmp(name, "police") == 0) || (strcmp(name, "cops") == 0))
-        printf("\nFuck you bitch! My keys are in the console you dumb fuck!'\n\n");
-    else if (strcmp(name, "bitch") == 0)
-    {
-        printf("I see how it is, faggot!\n");
-        sleep(2);
-        printf("Well, you might not be queer, but I bet you would let one go soft in your mouth.\n\n");
-        sleep(5);
-        system("clear");
-        return; // End function
-    }
-    else
-        printf("\nI hate fucking cops! Want some Yuengling?\n\n");
->>>>>>> 90219534e017f00bc3bb6276d86da70a7a1d6fc0
 
     printf("\033[0mPress Enter\n");
     getchar();
     while ((getchar()) != '\n');
     fflush(stdin);
     free(name);
-    brian(); // Start function over
 }
