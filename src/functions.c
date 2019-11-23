@@ -124,26 +124,37 @@ void max_out_memory()
             break;
         else if (c == 'c' || c == 'C')
         {
-            size_t ohshit = 1;
-            char *uhoh = malloc(sizeof(int) * ohshit);
-            if (uhoh == NULL)
-                exit(99);
-            while (uhoh != NULL)
+            size_t number = 1;
+            char *memory = malloc(sizeof(int) * number);
+            if (memory == NULL)
+                fprintf(stderr, "Could not allocate memory\n");
+            while (memory != NULL)
             {
                 system("clear");
-                printf("sizeof uhoh > %lu\nohshit > %lu\n", sizeof(uhoh), ohshit);
-                ohshit *= 2;
-                free(uhoh);
-                uhoh = malloc(sizeof(int) * ohshit);
+                size_t byte = number;
+                size_t kb = byte / 1024;
+                size_t mb = kb / 1024;
+                size_t gb = mb / 1024;
+                printf("memory(%lu) * number(%luG %luM %luK %luB) at memory address %p\n", sizeof(memory), gb, mb, kb, byte, memory);
+                number *= 2;
+                free(memory);
+                memory = malloc(sizeof(int) * number);
+                if (memory == NULL)
+                {
+                    fprintf(stderr, "Coud not allocate anymore memory\n");
+                    printf("\nPress Enter");
+                    break;
+                }
+                sleep(1);
             }
-            printf("Press Enter\n");
-            getchar();
+            
+            if (memory)
+                free(memory);
+
             while ((getchar()) != '\n');
-            fflush(stdin);
-            free(uhoh);
-            system("clear");
         }
     }
+    system("clear");
 }
 
 void brian()
@@ -152,14 +163,16 @@ void brian()
 
     char *name = (char *) calloc(10, sizeof(char));
     unsigned int i;
+    int end = 1;
 
-    printf("\033[31;36mWho will speak to Brian...\n\033[31;33m");
-
-    if (scanf("%s", name) == 0)
-        name = "anybody";
-
-    while ((strcmp(name, "fuckoff")) != 0)
+    while (end == 1)
     {
+        printf("\033[31;36mWho wants to speak to Brian?\n\033[31;33m");
+        if (scanf("%s", name) == 0)
+            name = "anybody";
+
+        for (i = 0; i < strlen(name); i++)
+            name[i] = (char) tolower(name[i]);
         if ((strcmp(name, "jason")) == 0)
             printf("\nStill got that bitch Noah workig with you!?\n\n");
         else if (strcmp(name, "jessie") == 0)
@@ -180,27 +193,14 @@ void brian()
             printf("\nWhen you done with me cupping your balls I'll get back to work.\n\n");
         else if ((strcmp(name, "police") == 0) || (strcmp(name, "cops") == 0))
             printf("\nFuck you bitch! My keys are in the console you dumb fuck!'\n\n");
+        else if ((strcmp(name, "fuckoff")) == 0)
+        {
+            free(name);
+            system("clear");
+            printf("\033[0m");
+            end = 0;
+        }
         else
-            printf("\nI hate fucking cops! Wanna drink some Yuengling?\n");
-    
-        printf("\033[0mPress Enter\n");
-        getchar();
-        while ((getchar()) != '\n');
-        fflush(stdin);
-        system("clear");
-
-        printf("\033[31;36mWho dares speak to the fucker now?\n\033[31;33m");
-
-        if (scanf("%s", name) == 0)
-            name = "anybody";
-
-        for (i = 0; i < strlen(name); i++)
-            name[i] = (char) tolower(name[i]);
+            printf("\nI hate fucking cops! Wanna drink some Yuengling?\n\n");
     }
-
-    printf("\033[0mPress Enter\n");
-    getchar();
-    while ((getchar()) != '\n');
-    fflush(stdin);
-    free(name);
 }
