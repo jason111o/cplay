@@ -4,6 +4,7 @@
 #include <limits.h>
 #include <ctype.h>
 #include <unistd.h>
+#include <locale.h>
 
 /*====STRUCTS====*/
 typedef struct node

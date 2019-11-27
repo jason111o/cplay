@@ -3,157 +3,113 @@
 void print_ascii()
 {
     system("clear");
+    size_t i = 0;
     char *string = (char*)calloc(UCHAR_MAX, sizeof(char));
-    printf("\nEnter a string to see the ascii values of each character\n>");
-    char c;
-    c = getchar();
-    unsigned long i = 0;
-    while (c != '\n')
+    if (string == NULL)
     {
-        string[i] = (char)c;
-        if (i == (UCHAR_MAX-2))
-            break;
-        i++;
-        c = getchar();
+        fprintf(stderr, "Could not allocate memory for string\n");
+        exit(1);
     }
-    fflush(stdin);
+    printf("\n Find ASCII values for: ");
+    char c = getchar();
+    while ((c = getchar()) != '\n')
+    {
+        string[i] = c;
+        i++;
+    }
 
-    printf("\n\033[01;34mCHAR ASCII\n");
+    printf("\n \033[01;34mCHAR ASCII\n");
     for (i = 0; i < strlen(string); i++)
     {
-        printf("\033[01;33m %c \033[01;31m-\033[01;35m %d\033[0m\n", string[i], string[i]);
+        printf(" \033[01;33m %c \033[01;31m-\033[01;35m %d\033[0m\n", string[i], string[i]);
     }
     printf("\n");
     free(string);
-    printf("Press Enter\n");
+    printf(" Press Enter\n");
     while ((getchar()) != '\n');
-    fflush(stdin);
     system("clear");
 }
 
 void print_hacker_name()
 {
     system("clear");
-    char *string = (char*)calloc(UCHAR_MAX, sizeof(char));
-    printf("\nEnter a name\n>");
-    char c;
-    c = getchar();
-    unsigned long i = 0;
-    while (c != '\n')
+    char *string = (char*)calloc(CHAR_MAX, sizeof(char));
+    if (string == NULL)
     {
-        string[i] = tolower((char)c);
-        if (i == (UCHAR_MAX-2))
-            break;
-        else if (string[i] == 'e')
+        fprintf(stderr, "Could not allocate memory for string\n");
+        exit(1);
+    }
+    printf("\n Name: ");
+    size_t i = 0;
+    char c = getchar();
+    while ((c = getchar()) != '\n')
+    {
+        string[i] = tolower(c);
+        i++;
+    }
+
+    for (i = 0; i < strlen(string); i++)
+    {
+        if (string[i] == 'e')
             string[i] = '3';
         else if (string[i] == 's')
             string[i] = '5';
         else if (string[i] == 'o')
             string[i] = '0';
         else if (string[i] == ' ')
-            string[i] = '-';
+            string[i] = '~';
         else if (string[i] == 'l')
             string[i] = '1';
         else if (string[i] == 'i')
             string[i] = 'I';
         else if (string[i] == 'h')
             string[i] = '4';
-        i++;
-        c = getchar();
+        else if (string[i] == 't')
+            string[i] = '7';
+        else if (string[i] == 'p')
+            string[i] = '9';
+        else if (string[i] == 'n')
+            string[i] = 'u';
     }
-    fflush(stdin);
 
-    printf("\n\033[01;34mYour hacker name is...\n");
-    for (i = 0; i < strlen(string); i++)
-    {
-        printf("\033[01;31m%c", string[i]);
-    }
-    printf("\033[0m\n\n");
-    free(string);
-    printf("Press Enter\n");
-    while ((getchar()) != '\n')
-    fflush(stdin);
+    printf("\n \033[01;31m%s\n", string);
+    
+    printf("\n \033[0mPress Enter\n");
+    while ((getchar()) != '\n');
+    if (string)
+        free(string);
     system("clear");
 }
 
 void find_cubic_yard()
 {
     system("clear");
-    printf("Enter decimal numbers i.e. 2.8, 6.79, 3, 3.0\n");
-    printf("Height: ");
+    printf(" Enter numeric/decimal values\n");
+    printf("\n Height: ");
     double h;
     if (scanf("%lf", &h) == 0)
     {
         fprintf(stderr, "scanf failed to get int w\n");
         exit(1);
     }
-    fflush(stdin);
-    printf("Width: ");
+    printf(" Width: ");
     double w;
     if (scanf("%lf", &w) == 0)
     {
         fprintf(stderr, "scanf failed to get int w\n");
         exit(1);
     }
-    fflush(stdin);
-    printf("Length: ");
+    printf(" Length: ");
     double l;
     if (scanf("%lf", &l) == 0)
     {
         fprintf(stderr, "scanf failed to get int w\n");
         exit(1);
     }
-    fflush(stdin);
-    printf("\033[01;33m%.2lf \033[01;37mCY\n\n\033[0m", (double) ((l*w*h) / 27));
+    printf("\n \033[01;33m%.2lf \033[01;37mCY\n\n\033[0m", (double) ((l*w*h) / 27));
     printf("Press Enter\n");
     getchar();
     while ((getchar()) != '\n');
-    fflush(stdin);
-    system("clear");
-}
-
-void max_out_memory()
-{
-    system("clear");
-    printf("Enter 'c' to continue or 'q' to quit\n>");
-    char c;
-    while ((c = getchar()) != '\n')
-    {
-        fflush(stdin);
-        if (c == 'q' || c == 'Q')
-            break;
-        else if (c == 'c' || c == 'C')
-        {
-            size_t number = 1;
-            char *memory = malloc(sizeof(int) * number);
-            if (memory == NULL)
-                fprintf(stderr, "Could not allocate memory\n");
-            while (memory != NULL)
-            {
-                system("clear");
-                size_t byte = number;
-                size_t kb = byte / 1024;
-                size_t mb = kb / 1024;
-                size_t gb = mb / 1024;
-                printf("memory(%lu) * number(%luG %luM %luK %luB) at memory address %p\n", sizeof(memory), gb, mb, kb, byte, memory);
-                number *= 2;
-                free(memory);
-                memory = malloc(sizeof(int) * number);
-                if (memory == NULL)
-                {
-                    fprintf(stderr, "Coud not allocate anymore memory\n");
-                    printf("\nPress Enter");
-                    break;
-                }
-                sleep(1);
-            }
-            
-            if (memory)
-                free(memory);
-
-            while ((getchar()) != '\n');
-        }
-    }
     system("clear");
 }
 
@@ -170,6 +126,7 @@ void brian()
         printf("\033[31;36mWho wants to speak to Brian?\n\033[31;33m");
         if (scanf("%s", name) == 0)
             name = "anybody";
+        while ((getchar()) != '\n');
 
         for (i = 0; i < strlen(name); i++)
             name[i] = (char) tolower(name[i]);
